@@ -12,6 +12,10 @@
 - TWITTER_ACCESS_TOKEN
 - TWITTER_ACCESS_TOKEN_SECRET
 
+To set the enviroment variables use:
+- https://gitpod.io/variables for GitPod
+- Your local operating system procedure for local running. Make sure that the teriminal running docker-compose will have those variables set correctly.
+
 ## Launch the workspace in your browser with GitPod:
 - https://gitpod.io/#https://github.com/MCubek/TwitterStreamingProject
 
