@@ -1,0 +1,20 @@
+{
+  "name": "TwitterSourceConnector",
+  "config": {
+    "name": "TwitterSourceConnector",
+    "connector.class": "com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.url": "http://schema-registry:8081",
+    "key.converter.schema.registry.url": "http://schema-registry:8081",
+    "tasks.max": 1,
+    "process.deletes": false,
+    "kafka.status.topic": "twitter_tweets",
+    "kafka.delete.topic": "twitter_deletes",
+    "twitter.oauth.consumerKey": "$TWITTER_CONSUMER_KEY",
+    "twitter.oauth.consumerSecret": "$TWITTER_CONSUMER_SECRET",
+    "twitter.oauth.accessToken": "$TWITTER_ACCESS_TOKEN",
+    "twitter.oauth.accessTokenSecret": "$TWITTER_ACCESS_TOKEN_SECRET",
+    "filter.keywords": "kanye"
+  }
+}

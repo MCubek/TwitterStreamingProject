@@ -1,0 +1,23 @@
+---
+version: '3'
+services:
+  submit-connectors:
+    build: kafka-connect/connector-builder
+    hostname: submit-connectors
+    container_name: submit-connectors
+    depends_on:
+      connect:
+        condition: service_healthy
+    volumes:
+      - ./scripts/submit-connector.sh:/usr/bin/submit-connector.sh
+      - ./kafka-connect/connectors:/connectors
+    environment:
+      - TWITTER_CONSUMER_KEY=${TWITTER_CONSUMER_KEY}
+      - TWITTER_CONSUMER_SECRET=${TWITTER_CONSUMER_SECRET}
+      - TWITTER_ACCESS_TOKEN=${TWITTER_ACCESS_TOKEN}
+      - TWITTER_ACCESS_TOKEN_SECRET=${TWITTER_ACCESS_TOKEN_SECRET}
+    command:
+      - bash
+      - -c
+      - |
+        for connector in /connectors/*.json; do submit-connector.sh $${connector} connect; done

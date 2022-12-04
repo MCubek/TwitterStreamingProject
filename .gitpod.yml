@@ -1,0 +1,65 @@
+github:
+  prebuilds:
+    # enable for the default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: false
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: true
+    # configure whether Gitpod registers itself as a status check to pull requests
+    addCheck: false
+
+tasks:
+  - name: download docker images
+    init: docker-compose build && docker-compose pull
+
+  - name: install bash programs
+    command: |
+      sudo apt-get install gettext-base
+
+  - name: start services
+    command: |
+      docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors.yaml up -d
+      echo "Started services!"
+
+ports:
+
+### Graphical User Interface (GUI) Apps
+
+  # Confluent Control Center
+  - port: 9021
+    onOpen: notify
+    visibility: public
+
+  # Kafka UI
+  - port: 8080
+    onOpen: notify
+    visibility: public
+
+### Backend Services
+
+  # zookeeper
+  - port: 2181
+    onOpen: ignore
+    
+  # Confluent Server (Kafka broker)
+  - port: 9092
+    onOpen: ignore
+    
+  # Confluent Schema Registry
+  - port: 8081
+    onOpen: ignore
+
+  # Confluent ksqlDB
+  - port: 8088
+    onOpen: ignore
+
+  # Kafka Connect REST endpoint
+  - port: 8083
+    onOpen: ignore
+
+  # Broker JMX metrics
+  - port: 9101
+    onOpen: ignore
