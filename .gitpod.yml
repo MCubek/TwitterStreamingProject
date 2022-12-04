@@ -1,7 +1,7 @@
 github:
   prebuilds:
     # enable for the default branch (defaults to true)
-    main: true
+    master: true
     # enable for all branches in this repo (defaults to false)
     branches: false
     # enable for pull requests coming from this repo (defaults to true)
@@ -12,11 +12,9 @@ github:
     addCheck: false
 
 tasks:
-  - name: download docker images
-    init: docker-compose build && docker-compose pull
-
-  - name: install bash programs
-    command: |
+  - name: download docker images & bash dependencies
+    init: | 
+      docker-compose build && docker-compose pull
       sudo apt-get install gettext-base
 
   - name: start services
