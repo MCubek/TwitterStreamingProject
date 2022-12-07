@@ -1,0 +1,231 @@
+{
+	"CreatedAt": {
+		"long": 1670432987000
+	},
+	"Id": {
+		"long": 1600538072512200700
+	},
+	"Text": {
+		"string": "RT @hilalove_music: There is no reality in which Kim Kardashian didn’t know Kanye was a raging antisemite."
+	},
+	"Source": {
+		"string": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>"
+	},
+	"Truncated": {
+		"boolean": false
+	},
+	"InReplyToStatusId": {
+		"long": -1
+	},
+	"InReplyToUserId": {
+		"long": -1
+	},
+	"InReplyToScreenName": null,
+	"GeoLocation": null,
+	"Place": null,
+	"Favorited": {
+		"boolean": false
+	},
+	"Retweeted": {
+		"boolean": false
+	},
+	"FavoriteCount": {
+		"int": 0
+	},
+	"User": {
+		"Id": {
+			"long": 999885580212228100
+		},
+		"Name": {
+			"string": "smoove."
+		},
+		"ScreenName": {
+			"string": "SmooveTheSource"
+		},
+		"Location": {
+			"string": "SourcedBySmoove. "
+		},
+		"Description": {
+			"string": "the source | 🐐 | @sourcedbysmoove  $SmooveTheSource 💚"
+		},
+		"ContributorsEnabled": {
+			"boolean": false
+		},
+		"ProfileImageURL": {
+			"string": "http://pbs.twimg.com/profile_images/1566265142148579328/3WKaHv6M_normal.jpg"
+		},
+		"BiggerProfileImageURL": {
+			"string": "http://pbs.twimg.com/profile_images/1566265142148579328/3WKaHv6M_bigger.jpg"
+		},
+		"MiniProfileImageURL": {
+			"string": "http://pbs.twimg.com/profile_images/1566265142148579328/3WKaHv6M_mini.jpg"
+		},
+		"OriginalProfileImageURL": {
+			"string": "http://pbs.twimg.com/profile_images/1566265142148579328/3WKaHv6M.jpg"
+		},
+		"ProfileImageURLHttps": {
+			"string": "https://pbs.twimg.com/profile_images/1566265142148579328/3WKaHv6M_normal.jpg"
+		},
+		"BiggerProfileImageURLHttps": {
+			"string": "https://pbs.twimg.com/profile_images/1566265142148579328/3WKaHv6M_bigger.jpg"
+		},
+		"MiniProfileImageURLHttps": {
+			"string": "https://pbs.twimg.com/profile_images/1566265142148579328/3WKaHv6M_mini.jpg"
+		},
+		"OriginalProfileImageURLHttps": {
+			"string": "https://pbs.twimg.com/profile_images/1566265142148579328/3WKaHv6M.jpg"
+		},
+		"DefaultProfileImage": {
+			"boolean": false
+		},
+		"URL": {
+			"string": "http://sourcedbysmoove.com"
+		},
+		"Protected": {
+			"boolean": false
+		},
+		"FollowersCount": {
+			"int": 3024
+		},
+		"ProfileBackgroundColor": {
+			"string": "F5F8FA"
+		},
+		"ProfileTextColor": {
+			"string": "333333"
+		},
+		"ProfileLinkColor": {
+			"string": "1DA1F2"
+		},
+		"ProfileSidebarFillColor": {
+			"string": "DDEEF6"
+		},
+		"ProfileSidebarBorderColor": {
+			"string": "C0DEED"
+		},
+		"ProfileUseBackgroundImage": {
+			"boolean": true
+		},
+		"DefaultProfile": {
+			"boolean": true
+		},
+		"ShowAllInlineMedia": {
+			"boolean": false
+		},
+		"FriendsCount": {
+			"int": 1444
+		},
+		"CreatedAt": {
+			"long": 1527226274000
+		},
+		"FavouritesCount": {
+			"int": 116529
+		},
+		"UtcOffset": {
+			"int": -1
+		},
+		"TimeZone": null,
+		"ProfileBackgroundImageURL": {
+			"string": ""
+		},
+		"ProfileBackgroundImageUrlHttps": {
+			"string": ""
+		},
+		"ProfileBannerURL": {
+			"string": "https://pbs.twimg.com/profile_banners/999885580212228096/1604357573/web"
+		},
+		"ProfileBannerRetinaURL": {
+			"string": "https://pbs.twimg.com/profile_banners/999885580212228096/1604357573/web_retina"
+		},
+		"ProfileBannerIPadURL": {
+			"string": "https://pbs.twimg.com/profile_banners/999885580212228096/1604357573/ipad"
+		},
+		"ProfileBannerIPadRetinaURL": {
+			"string": "https://pbs.twimg.com/profile_banners/999885580212228096/1604357573/ipad_retina"
+		},
+		"ProfileBannerMobileURL": {
+			"string": "https://pbs.twimg.com/profile_banners/999885580212228096/1604357573/mobile"
+		},
+		"ProfileBannerMobileRetinaURL": {
+			"string": "https://pbs.twimg.com/profile_banners/999885580212228096/1604357573/mobile_retina"
+		},
+		"ProfileBackgroundTiled": {
+			"boolean": false
+		},
+		"Lang": null,
+		"StatusesCount": {
+			"int": 142612
+		},
+		"GeoEnabled": {
+			"boolean": true
+		},
+		"Verified": {
+			"boolean": false
+		},
+		"Translator": {
+			"boolean": false
+		},
+		"ListedCount": {
+			"int": 19
+		},
+		"FollowRequestSent": {
+			"boolean": false
+		},
+		"WithheldInCountries": []
+	},
+	"Retweet": {
+		"boolean": true
+	},
+	"Contributors": [],
+	"RetweetCount": {
+		"int": 0
+	},
+	"RetweetedByMe": {
+		"boolean": false
+	},
+	"CurrentUserRetweetId": {
+		"long": -1
+	},
+	"PossiblySensitive": {
+		"boolean": false
+	},
+	"Lang": {
+		"string": "en"
+	},
+	"WithheldInCountries": [],
+	"HashtagEntities": {
+		"array": []
+	},
+	"UserMentionEntities": {
+		"array": [
+			{
+				"Name": {
+					"string": "HRH"
+				},
+				"Id": {
+					"long": 983667961
+				},
+				"Text": {
+					"string": "hilalove_music"
+				},
+				"ScreenName": {
+					"string": "hilalove_music"
+				},
+				"Start": {
+					"int": 3
+				},
+				"End": {
+					"int": 18
+				}
+			}
+		]
+	},
+	"MediaEntities": {
+		"array": []
+	},
+	"SymbolEntities": {
+		"array": []
+	},
+	"URLEntities": {
+		"array": []
+	}
+}
