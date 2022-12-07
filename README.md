@@ -21,13 +21,13 @@ To set the enviroment variables use:
 
 ## Launch the workspace locally with Docker:
 1. Position bash command line to project root directory
-2. Open docker-compose and as per comments comment lines specific to gitpod and uncomment lines specific to local running. 
-An example of such lines:
+2. Open `docker-compose.yaml` and comment out configuration lines specific to gitpod and uncomment lines specific to local running for confluent platform pod. 
+That change shown below:
     ```Yaml
     # If running in Gitpod, your browser must connect to ksqlDB via Gitpod's proxy URL
-    CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: https://8088-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}
+    # CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: https://8088-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}
     # If running locally, your browser must connect to ksqlDB through localhost 8088. Comment out the above line and uncomment the line below.
-    # CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: https://localhost:8088
+    CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: https://localhost:8088
     ```
 3. Build the required images
     ```Bash
