@@ -21,18 +21,31 @@ To set the enviroment variables use:
 
 ## Launch the workspace locally with Docker:
 1. Position bash command line to project root directory
-2. Build the required images
+2. Open docker-compose and as per comments comment lines specific to gitpod and uncomment lines specific to local running. 
+An example of such lines:
+    ```Yaml
+    # If running in Gitpod, your browser must connect to ksqlDB via Gitpod's proxy URL
+    CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: https://8088-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}
+    # If running locally, your browser must connect to ksqlDB through localhost 8088. Comment out the above line and uncomment the line below.
+    # CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: https://localhost:8088
+    ```
+3. Build the required images
     ```Bash
     docker-compose build && docker-compose pull
     ```
-3. Install additional bash commands
+4. Install additional bash commands
     ```Bash
     sudo apt-get install gettext-base
     ```
-4. Start required services
+5. Start required services
     ```Bash
     docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors.yaml up -d
     ```
-5. Open Confluent Platform interface or Kafka-UI
+6. Open Confluent Platform interface or Kafka-UI
     - http://localhost:8080
     - http://localhost:9021
+
+7. To stop services
+    ```Bash
+    docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors.yaml down
+    ```
