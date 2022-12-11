@@ -1,16 +1,17 @@
 ---
 version: '3'
 services:
-  submit-connectors:
+  submit-connectors-queries:
     build: kafka-connect/connector-builder
-    hostname: submit-connectors
-    container_name: submit-connectors
+    hostname: submit-connectors-queries
+    container_name: submit-connectors-queries
     depends_on:
       connect:
         condition: service_healthy
     volumes:
-      - ./scripts/submit-connector.sh:/usr/bin/submit-connector.sh
+      - ./scripts:/scripts
       - ./kafka-connect/connectors:/connectors
+      - ./ksqlDB/queries:/queries
     environment:
       - TWITTER_CONSUMER_KEY=${TWITTER_CONSUMER_KEY}
       - TWITTER_CONSUMER_SECRET=${TWITTER_CONSUMER_SECRET}
@@ -20,4 +21,6 @@ services:
       - bash
       - -c
       - |
-        for connector in /connectors/*.json; do submit-connector.sh $${connector} connect; done
+        for connector in /connectors/*.json; do /scripts/submit-connector.sh $${connector} connect; done
+        sleep 10
+        for query in /queries/*.ksql; do /scripts/submit-stored-queries.sh $${query} ksqldb-server; done

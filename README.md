@@ -39,7 +39,7 @@ That change shown below:
     ```
 5. Start required services
     ```Bash
-    docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors.yaml up -d
+    docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors-queries.yaml up -d
     ```
 6. Open Confluent Platform interface or Kafka-UI
     - http://localhost:8080
@@ -47,5 +47,5 @@ That change shown below:
 
 7. To stop services
     ```Bash
-    docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors.yaml down
+    docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors-queries.yaml down
     ```
