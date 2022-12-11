@@ -42,8 +42,12 @@ That change shown below:
     docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors-queries.yaml up -d
     ```
 6. Open Confluent Platform interface or Kafka-UI
-    - http://localhost:8080
-    - http://localhost:9021
+    - Kafka UI: http://localhost:8080
+    - Confluent Platform: http://localhost:9021
+    - For ksqlDB CLI execute:
+        ```Bash
+        docker-compose exec ksqldb-cli ksql http://ksqldb-server:8088
+        ```
 
 7. To stop services
     ```Bash
