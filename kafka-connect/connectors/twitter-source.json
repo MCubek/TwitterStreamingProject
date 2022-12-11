@@ -10,7 +10,6 @@
     "tasks.max": 1,
     "process.deletes": false,
     "kafka.status.topic": "twitter_tweets",
-    "kafka.delete.topic": "twitter_deletes",
     "twitter.oauth.consumerKey": "$TWITTER_CONSUMER_KEY",
     "twitter.oauth.consumerSecret": "$TWITTER_CONSUMER_SECRET",
     "twitter.oauth.accessToken": "$TWITTER_ACCESS_TOKEN",

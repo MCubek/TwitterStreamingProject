@@ -1,0 +1,1 @@
+CREATE STREAM TWEETS WITH (KAFKA_TOPIC='twitter_tweets', VALUE_FORMAT='Avro');
