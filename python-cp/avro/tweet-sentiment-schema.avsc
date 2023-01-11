@@ -1,0 +1,29 @@
+{
+    "type": "record",
+	"name": "Status",
+	"namespace": "com.github.jcustenborder.kafka.connect.twitter",
+    "fields": [
+        {
+            "name": "Text",
+			"type": [
+				"null",
+				{
+					"type": "string",
+					"connect.doc": "Returns the text of the status"
+				}
+			],
+			"default": null
+        },
+        {
+            "name": "Sentiment",
+            "type": [
+                "null",
+                {
+                    "type": "string",
+                    "connect.doc": "Returns the sentiment of the text"
+                }
+            ],
+            "default": null
+        }
+    ]
+}
