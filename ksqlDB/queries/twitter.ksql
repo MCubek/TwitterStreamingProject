@@ -1,6 +1,6 @@
 CREATE STREAM TWEETS WITH (KAFKA_TOPIC='twitter_tweets', VALUE_FORMAT='Avro');
 
-CREATE STREAM ENGLISH_TWEETS WITH (value_format='Avro')
+CREATE STREAM ENGLISH_TWEETS WITH (value_format='Avro', kafka_topic='twitter_tweets_english', partitions=3, replicas=1)
 AS
 SELECT *
 FROM TWEETS
