@@ -119,6 +119,10 @@ services:
     depends_on:
       - broker
       - connect
+    healthcheck:
+      interval: 10s
+      retries: 30
+      test: curl -f http://localhost:8088/info || exit 1
     ports:
       - "8088:8088"
     volumes:

@@ -15,17 +15,17 @@ model_path = "/model/model.joblib"
 
 # KAFKA CONFIG
 consumer_conf = {
-    "bootstrap.servers": "localhost:9092",
+    "bootstrap.servers": "broker:29092",
     "group.id": "twitter_tweet_consumer",
 }
 producer_conf = {
-    "bootstrap.servers": "localhost:9092",
+    "bootstrap.servers": "broker:29092",
 }
-schema_registry_url = "http://localhost:8081"
+schema_registry_url = "http://schema-registry:8081"
 
 input_tweet_topic = "twitter_tweets_english"
 output_tweet_topic = "twitter_tweets_enriched"
-output_tweet_schema = "python-cp/avro/tweet-sentiment-schema.avsc"
+output_tweet_schema = "avro/tweet-sentiment-schema.avsc"
 
 # PREPROCESSING REQUIREMENTS
 tokenizer = TweetTokenizer(preserve_case=True, reduce_len=True, strip_handles=True)
