@@ -4,28 +4,25 @@ import re
 english_punctuations = string.punctuation
 punctuations_list = english_punctuations
 
+
 def separate_hashtags(s, tokenizer, segmenter):
-    '''Removes the hashtag sign and segments the hashtag text.'''
-    hashtags = []
-    l = []
+    """Removes the hashtag sign and segments the hashtag text."""
+    ls = []
     for i, s_i in enumerate(s):
         if s_i.startswith('#'):
             tmp = tokenizer.tokenize(segmenter.segment(s_i.replace('#', '')))
-            l.extend(tmp)
+            ls.extend(tmp)
         else:
-            l.append(s_i)
-    return l
-
+            ls.append(s_i)
+    return ls
 
 
 def preprocess_words(s):
-    '''
+    """
     Removes tags, links, smiley faces, | signs, stopwords and changes the case to lower.
-    '''
-    ret_list = []
-
+    """
     smiley_regex = r'([\:\;\=][()PDO\/\]\[p|]+)+'
-    
+
     is_tag = lambda w: w.startswith('@')
     is_vertical_line = lambda w: w.startswith('|')
     is_link = lambda w: w.startswith("http") or w.startswith("https")
@@ -57,19 +54,24 @@ def preprocess_words(s):
 
     return ' '.join([i for i in w2 if len(i) > 2])
 
+
 def lower_append(w, l):
     l.append(w.lower())
+
 
 def cleaning_punctuations(text):
     translator = str.maketrans('', '', punctuations_list)
     return text.translate(translator)
 
+
 def remove_tuple_characters(s):
     return [re.sub(r'(.)\1{2,}', r'\1', w) for w in s.split()]
+
 
 def lemmatize(s, lemmatizer):
     ret = ' '.join([lemmatizer.lemmatize(word) for word in s])
     return ret
+
 
 def preprocess_tweet(tweet_text, tokenizer, segmenter, lemmatizer):
     tokenized = tokenizer.tokenize(tweet_text)

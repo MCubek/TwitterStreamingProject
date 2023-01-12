@@ -1,46 +1,48 @@
-import json
 import joblib
+import nltk
 from confluent_kafka.avro import AvroConsumer, AvroProducer, CachedSchemaRegistryClient
 from confluent_kafka.avro.serializer import SerializerError
-from nltk.tokenize.casual import TweetTokenizer
 from ekphrasis.classes.segmenter import Segmenter
 from nltk.stem import WordNetLemmatizer
-from preprocess import *
-import nltk
+from nltk.tokenize.casual import TweetTokenizer
+
+import preprocess
 
 nltk.download('wordnet')
 
-# Set up the Kafka consumer
+vectorizer_path = "/model/vectorizer.joblib"
+model_path = "/model/model.joblib"
+
+# KAFKA CONFIG
 consumer_conf = {
     "bootstrap.servers": "localhost:9092",
     "group.id": "twitter_tweet_consumer",
 }
-
-# Set up the Kafka producer
 producer_conf = {
     "bootstrap.servers": "localhost:9092",
 }
 schema_registry_url = "http://localhost:8081"
-enriched_tweet_topic = "twitter_tweets_enriched"
-enriched_tweet_schema = "python-cp/avro/tweet-sentiment-schema.avsc"
+
+input_tweet_topic = "twitter_tweets_english"
+output_tweet_topic = "twitter_tweets_enriched"
+output_tweet_schema = "python-cp/avro/tweet-sentiment-schema.avsc"
 
 # PREPROCESSING REQUIREMENTS
 tokenizer = TweetTokenizer(preserve_case=True, reduce_len=True, strip_handles=True)
 seg_tw = Segmenter(corpus="twitter")
 lemmatizer = WordNetLemmatizer()
-tfidf_vectorizer = joblib.load('model/vectorizer.joblib')
-model = joblib.load('model/model.joblib')
-    
+tfidf_vectorizer = joblib.load(vectorizer_path)
+model = joblib.load(model_path)
 
 if __name__ == '__main__':
     # Set up the Avro producer
     schema_registry_client = CachedSchemaRegistryClient({"url": schema_registry_url})
     twitter_tweet_consumer = AvroConsumer(consumer_conf, schema_registry=schema_registry_client)
-    twitter_tweet_consumer.subscribe(["twitter_tweets"])
+    twitter_tweet_consumer.subscribe([input_tweet_topic])
     twitter_tweet_producer = AvroProducer(producer_conf, schema_registry=schema_registry_client)
 
     # Read the schema from a file
-    with open(enriched_tweet_schema, "r") as f:
+    with open(output_tweet_schema, "r") as f:
         tweet_enriched_schema = f.read()
 
     while True:
@@ -52,29 +54,26 @@ if __name__ == '__main__':
             break
         if msg:
             tweet_text = msg.value()['Text']
-            preprocessed_tweet = preprocess_tweet(tweet_text, tokenizer, seg_tw, lemmatizer)
+            preprocessed_tweet = preprocess.preprocess_tweet(tweet_text, tokenizer, seg_tw, lemmatizer)
             tweet_vectorized = tfidf_vectorizer.transform([preprocessed_tweet])
             predicted_value = model.predict(tweet_vectorized)
             if predicted_value == 1:
                 predicted_sentiment = 'positive'
             else:
                 predicted_sentiment = 'negative'
-            
+
             message_value = {"Text": tweet_text, "Sentiment": predicted_sentiment}
             # Produce the message to the "twitter_tweets" topic
             print(tweet_text)
             print(preprocessed_tweet)
             print(predicted_sentiment)
             print("------------------------------------------------------------")
-            
+
             twitter_tweet_producer.produce(
-                topic=enriched_tweet_topic,
+                topic=output_tweet_topic,
                 value=message_value,
                 value_schema=tweet_enriched_schema,
             )
             twitter_tweet_producer.flush()
         else:
             print("No message received by consumer")
-    
-
-    
