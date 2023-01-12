@@ -53,7 +53,7 @@ if __name__ == '__main__':
             twitter_tweet_consumer.close()
             break
         if msg:
-            tweet_text = msg.value()['Text']
+            tweet_text = msg.value()['TEXT']
             preprocessed_tweet = preprocess.preprocess_tweet(tweet_text, tokenizer, seg_tw, lemmatizer)
             tweet_vectorized = tfidf_vectorizer.transform([preprocessed_tweet])
             predicted_value = model.predict(tweet_vectorized)
