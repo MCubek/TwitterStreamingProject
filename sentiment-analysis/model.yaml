@@ -1,0 +1,13 @@
+---
+version: '3'
+services:
+  model:
+    build: sentiment-analysis
+    hostname: model
+    container_name: model
+    depends_on:
+      connect:
+        condition: service_healthy
+      submit-connectors-queries:
+        condition: service_completed_successfully
+    platform: linux/amd64
