@@ -1,29 +1,1154 @@
+
 {
-    "type": "record",
-	"name": "Status",
-	"namespace": "com.github.jcustenborder.kafka.connect.twitter",
-    "fields": [
+  "fields": [
+    {
+      "default": null,
+      "name": "CREATEDAT",
+      "type": [
+        "null",
         {
-            "name": "Text",
-			"type": [
-				"null",
-				{
-					"type": "string",
-					"connect.doc": "Returns the text of the status"
-				}
-			],
-			"default": null
-        },
+          "logicalType": "timestamp-millis",
+          "type": "long"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "ID",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "default": null,
+      "name": "TEXT",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "SOURCE",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "TRUNCATED",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "default": null,
+      "name": "INREPLYTOSTATUSID",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "default": null,
+      "name": "INREPLYTOUSERID",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "default": null,
+      "name": "INREPLYTOSCREENNAME",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "GEOLOCATION",
+      "type": [
+        "null",
         {
-            "name": "Sentiment",
-            "type": [
+          "fields": [
+            {
+              "default": null,
+              "name": "LATITUDE",
+              "type": [
+                "null",
+                "double"
+              ]
+            },
+            {
+              "default": null,
+              "name": "LONGITUDE",
+              "type": [
+                "null",
+                "double"
+              ]
+            }
+          ],
+          "name": "KsqlDataSourceSchema_GEOLOCATION",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "PLACE",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "default": null,
+              "name": "NAME",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "STREETADDRESS",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "COUNTRYCODE",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "ID",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "COUNTRY",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PLACETYPE",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "URL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "FULLNAME",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ],
+          "name": "KsqlDataSourceSchema_PLACE",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "FAVORITED",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "default": null,
+      "name": "RETWEETED",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "default": null,
+      "name": "FAVORITECOUNT",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "default": null,
+      "name": "USER",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "default": null,
+              "name": "ID",
+              "type": [
+                "null",
+                "long"
+              ]
+            },
+            {
+              "default": null,
+              "name": "NAME",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "SCREENNAME",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "LOCATION",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "DESCRIPTION",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "CONTRIBUTORSENABLED",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEIMAGEURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "BIGGERPROFILEIMAGEURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "MINIPROFILEIMAGEURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "ORIGINALPROFILEIMAGEURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEIMAGEURLHTTPS",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "BIGGERPROFILEIMAGEURLHTTPS",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "MINIPROFILEIMAGEURLHTTPS",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "ORIGINALPROFILEIMAGEURLHTTPS",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "DEFAULTPROFILEIMAGE",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "URL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROTECTED",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "FOLLOWERSCOUNT",
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBACKGROUNDCOLOR",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILETEXTCOLOR",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILELINKCOLOR",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILESIDEBARFILLCOLOR",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILESIDEBARBORDERCOLOR",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEUSEBACKGROUNDIMAGE",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "DEFAULTPROFILE",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "SHOWALLINLINEMEDIA",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "FRIENDSCOUNT",
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "default": null,
+              "name": "CREATEDAT",
+              "type": [
                 "null",
                 {
-                    "type": "string",
-                    "connect.doc": "Returns the sentiment of the text"
+                  "logicalType": "timestamp-millis",
+                  "type": "long"
                 }
-            ],
-            "default": null
+              ]
+            },
+            {
+              "default": null,
+              "name": "FAVOURITESCOUNT",
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "default": null,
+              "name": "UTCOFFSET",
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "default": null,
+              "name": "TIMEZONE",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBACKGROUNDIMAGEURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBACKGROUNDIMAGEURLHTTPS",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBANNERURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBANNERRETINAURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBANNERIPADURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBANNERIPADRETINAURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBANNERMOBILEURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBANNERMOBILERETINAURL",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "PROFILEBACKGROUNDTILED",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "LANG",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "default": null,
+              "name": "STATUSESCOUNT",
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "default": null,
+              "name": "GEOENABLED",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "VERIFIED",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "TRANSLATOR",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "LISTEDCOUNT",
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "default": null,
+              "name": "FOLLOWREQUESTSENT",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": null,
+              "name": "WITHHELDINCOUNTRIES",
+              "type": [
+                "null",
+                {
+                  "items": [
+                    "null",
+                    "string"
+                  ],
+                  "type": "array"
+                }
+              ]
+            }
+          ],
+          "name": "KsqlDataSourceSchema_USER",
+          "type": "record"
         }
-    ]
+      ]
+    },
+    {
+      "default": null,
+      "name": "RETWEET",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "default": null,
+      "name": "CONTRIBUTORS",
+      "type": [
+        "null",
+        {
+          "items": [
+            "null",
+            "long"
+          ],
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "RETWEETCOUNT",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "default": null,
+      "name": "RETWEETEDBYME",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "default": null,
+      "name": "CURRENTUSERRETWEETID",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "default": null,
+      "name": "POSSIBLYSENSITIVE",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "default": null,
+      "name": "LANG",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "WITHHELDINCOUNTRIES",
+      "type": [
+        "null",
+        {
+          "items": [
+            "null",
+            "string"
+          ],
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "HASHTAGENTITIES",
+      "type": [
+        "null",
+        {
+          "items": [
+            "null",
+            {
+              "fields": [
+                {
+                  "default": null,
+                  "name": "TEXT",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "START",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "END",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                }
+              ],
+              "name": "KsqlDataSourceSchema_HASHTAGENTITIES",
+              "type": "record"
+            }
+          ],
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "USERMENTIONENTITIES",
+      "type": [
+        "null",
+        {
+          "items": [
+            "null",
+            {
+              "fields": [
+                {
+                  "default": null,
+                  "name": "NAME",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "ID",
+                  "type": [
+                    "null",
+                    "long"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "TEXT",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "SCREENNAME",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "START",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "END",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                }
+              ],
+              "name": "KsqlDataSourceSchema_USERMENTIONENTITIES",
+              "type": "record"
+            }
+          ],
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "MEDIAENTITIES",
+      "type": [
+        "null",
+        {
+          "items": [
+            "null",
+            {
+              "fields": [
+                {
+                  "default": null,
+                  "name": "ID",
+                  "type": [
+                    "null",
+                    "long"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "TYPE",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "MEDIAURL",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "SIZES",
+                  "type": [
+                    "null",
+                    {
+                      "items": {
+                        "connect.internal.type": "MapEntry",
+                        "fields": [
+                          {
+                            "default": null,
+                            "name": "key",
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "value",
+                            "type": [
+                              "null",
+                              {
+                                "fields": [
+                                  {
+                                    "default": null,
+                                    "name": "RESIZE",
+                                    "type": [
+                                      "null",
+                                      "int"
+                                    ]
+                                  },
+                                  {
+                                    "default": null,
+                                    "name": "WIDTH",
+                                    "type": [
+                                      "null",
+                                      "int"
+                                    ]
+                                  },
+                                  {
+                                    "default": null,
+                                    "name": "HEIGHT",
+                                    "type": [
+                                      "null",
+                                      "int"
+                                    ]
+                                  }
+                                ],
+                                "name": "KsqlDataSourceSchema_MEDIAENTITIES_SIZES_MapValue",
+                                "type": "record"
+                              }
+                            ]
+                          }
+                        ],
+                        "name": "KsqlDataSourceSchema_MEDIAENTITIES_SIZES",
+                        "type": "record"
+                      },
+                      "type": "array"
+                    }
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "MEDIAURLHTTPS",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "VIDEOASPECTRATIOWIDTH",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "VIDEOASPECTRATIOHEIGHT",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "VIDEODURATIONMILLIS",
+                  "type": [
+                    "null",
+                    "long"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "VIDEOVARIANTS",
+                  "type": [
+                    "null",
+                    {
+                      "items": [
+                        "null",
+                        {
+                          "fields": [
+                            {
+                              "default": null,
+                              "name": "URL",
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "BITRATE",
+                              "type": [
+                                "null",
+                                "int"
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "CONTENTTYPE",
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          ],
+                          "name": "KsqlDataSourceSchema_MEDIAENTITIES_VIDEOVARIANTS",
+                          "type": "record"
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "EXTALTTEXT",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "URL",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "TEXT",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "EXPANDEDURL",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "START",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "END",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "DISPLAYURL",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              ],
+              "name": "KsqlDataSourceSchema_MEDIAENTITIES",
+              "type": "record"
+            }
+          ],
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "SYMBOLENTITIES",
+      "type": [
+        "null",
+        {
+          "items": [
+            "null",
+            {
+              "fields": [
+                {
+                  "default": null,
+                  "name": "START",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "END",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "TEXT",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              ],
+              "name": "KsqlDataSourceSchema_SYMBOLENTITIES",
+              "type": "record"
+            }
+          ],
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "URLENTITIES",
+      "type": [
+        "null",
+        {
+          "items": [
+            "null",
+            {
+              "fields": [
+                {
+                  "default": null,
+                  "name": "URL",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "TEXT",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "EXPANDEDURL",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "START",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "END",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "default": null,
+                  "name": "DISPLAYURL",
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              ],
+              "name": "KsqlDataSourceSchema_URLENTITIES",
+              "type": "record"
+            }
+          ],
+          "type": "array"
+        }
+      ]
+    },
+    {
+        "name": "Sentiment",
+        "type": [
+            "null",
+            {
+                "type": "string",
+                "connect.doc": "Returns the sentiment of the text"
+            }
+        ],
+        "default": null
+    }
+  ],
+  "name": "Status",
+  "namespace": "com.github.jcustenborder.kafka.connect.twitter",
+  "type": "record"
 }

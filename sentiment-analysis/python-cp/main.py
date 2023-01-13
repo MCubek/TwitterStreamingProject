@@ -62,7 +62,8 @@ if __name__ == '__main__':
             else:
                 predicted_sentiment = 'negative'
 
-            message_value = {"Text": tweet_text, "Sentiment": predicted_sentiment}
+            message_value = msg.value()
+            message_value["Sentiment"] = predicted_sentiment
             # Produce the message to the "twitter_tweets" topic
             print(tweet_text)
             print(preprocessed_tweet)
