@@ -10,8 +10,8 @@ import preprocess
 
 nltk.download('wordnet')
 
-vectorizer_path = "sentiment-analysis/model/vectorizer.joblib"
-model_path = "sentiment-analysis/model/model.joblib"
+vectorizer_path = "/model/vectorizer.joblib"
+model_path = "/model/model.joblib"
 
 # KAFKA CONFIG
 consumer_conf = {
