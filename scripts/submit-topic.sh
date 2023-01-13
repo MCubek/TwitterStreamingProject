@@ -10,6 +10,6 @@ IFS=' '
 read -ra ARGS <<< "$TOPIC_CONFIG"
 
 
-echo -e "\nsubmitting topic with config $TOPIC_CONFIG to broker $BROKER\n"
+echo -e "submitting topic with config $TOPIC_CONFIG to broker $BROKER"
 
 /kafka/kafka_2.13-3.3.1/bin/kafka-topics.sh --bootstrap-server "$BROKER" "${ARGS[@]}"

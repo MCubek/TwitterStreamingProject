@@ -1,0 +1,1 @@
+--topic twitter_tweets_english --partitions 3 --replication-factor 1 --create

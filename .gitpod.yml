@@ -19,7 +19,7 @@ tasks:
 
   - name: start services
     command: |
-      docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors-queries.yaml up -d
+      docker-compose -f docker-compose.yaml -f kafka-connect/submit-connectors-queries.yaml -f sentiment-analysis/model.yaml up -d
       echo "Started services!"
 
 ports:
