@@ -1,1 +1,1 @@
-CREATE STREAM ENRICHED_TWEETS (TEXT varchar, SENTIMENT varchar) WITH (KAFKA_TOPIC='twitter_tweets_enriched', VALUE_FORMAT='Avro');
+CREATE STREAM ENRICHED_TWEETS WITH (KAFKA_TOPIC='twitter_tweets_enriched', VALUE_FORMAT='Avro');

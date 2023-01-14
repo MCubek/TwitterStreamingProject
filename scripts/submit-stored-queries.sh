@@ -1,6 +1,5 @@
 #!/bin/bash
 
-HEADER="Content-Type: application/vnd.ksql.v1+json; charset=utf-8"
 KSQL_HOST=$2
 KSQL_HOST="${KSQL_HOST:-localhost}"
 

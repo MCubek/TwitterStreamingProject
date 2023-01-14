@@ -15,6 +15,7 @@ services:
       - ./kafka-connect/connectors:/connectors
       - ./ksqlDB/queries:/queries
       - ./topics:/topics
+      - ./sentiment-analysis/python-cp/avro:/schemas
     environment:
       - TWITTER_CONSUMER_KEY=${TWITTER_CONSUMER_KEY}
       - TWITTER_CONSUMER_SECRET=${TWITTER_CONSUMER_SECRET}
@@ -25,6 +26,7 @@ services:
       - -c
       - |
         for topic in /topics/*.txt; do /scripts/submit-topic.sh $${topic} broker:29092; done
+        for schema in /schemas/*.avsc; do /scripts/submit-schema.sh $${schema} schema-registry:8081; done
         for connector in /connectors/*.json; do /scripts/submit-connector.sh $${connector} connect; done
         sleep 30
         for query in /queries/*.ksql; do /scripts/submit-stored-queries.sh $${query} ksqldb-server; done
